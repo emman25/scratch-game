@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b249655-71cd-41b9-8250-45bf4c525d84" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/core/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/BonusSymbolProbability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/GameConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/GameResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/Probabilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/StandardSymbolProbability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/Symbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/game/model/WinCombination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/game/MainTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/game/core/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +97,7 @@
       <updated>1734255759050</updated>
       <workItem from="1734255760090" duration="3789000" />
       <workItem from="1734361957392" duration="7269000" />
-      <workItem from="1734415499385" duration="375000" />
+      <workItem from="1734415499385" duration="2137000" />
     </task>
     <servers />
   </component>
