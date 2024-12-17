@@ -4,24 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.game.model.GameConfig;
 import com.game.core.Game;
 import com.game.model.GameResult;
-import java.util.*;
 
 import java.nio.file.Path;
+import java.io.IOException;
 
 public class Main {
+    // Make record public for testing
+    public static record CLIConfig(String configPath, double bettingAmount) {}
 
     public static void main(String[] args) {
         try {
-            var config = parseArguments(args);
-            var mapper = new ObjectMapper();
-
-            var gameConfig = mapper.readValue(Path.of(config.configPath()).toFile(), GameConfig.class);
-
-            var game = new Game(gameConfig);
-            var result = game.play(config.bettingAmount());
-
-            System.out.println(mapper.writeValueAsString(result));
-
+            run(args);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
@@ -29,9 +22,24 @@ public class Main {
         }
     }
 
-    private static record CLIConfig(String configPath, double bettingAmount) {}
+    static GameResult run(String[] args) throws IOException {
+        var config = parseArguments(args);
+        var mapper = new ObjectMapper();
+        var configFile = Path.of(config.configPath()).toFile();
 
-    private static CLIConfig parseArguments(String[] args) {
+        if (!configFile.exists()) {
+            throw new IllegalArgumentException("Config file not found: " + config.configPath());
+        }
+
+        var gameConfig = mapper.readValue(configFile, GameConfig.class);
+        var game = new Game(gameConfig);
+        var result = game.play(config.bettingAmount());
+
+        System.out.println(mapper.writeValueAsString(result));
+        return result;
+    }
+
+    static CLIConfig parseArguments(String[] args) {
         String configPath = null;
         double bettingAmount = 0;
 
@@ -41,7 +49,13 @@ public class Main {
                     if (i + 1 < args.length) configPath = args[++i];
                 }
                 case "--betting-amount" -> {
-                    if (i + 1 < args.length) bettingAmount = Double.parseDouble(args[++i]);
+                    if (i + 1 < args.length) {
+                        try {
+                            bettingAmount = Double.parseDouble(args[++i]);
+                        } catch (NumberFormatException e) {
+                            throw new IllegalArgumentException("Invalid betting amount: " + args[i]);
+                        }
+                    }
                 }
             }
         }
